@@ -17,4 +17,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/loket', function () {
+    return view('loket.dashboard');
+})->middleware(['auth'])->name('loket.dashboard');
+
+
 require __DIR__.'/auth.php';
