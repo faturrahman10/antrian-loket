@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('lokets', function (Blueprint $table) {
             $table->id();
+            $table->string('nama')->unique();
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }
