@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Lokets;
+use App\Models\Loket;
 
 class LoketSeeder extends Seeder
 {
@@ -20,7 +20,7 @@ class LoketSeeder extends Seeder
             ['nama' => 'Loket 4'],
         ];
         foreach ($lokets as $l) {
-            Lokets::firstOrCreate(['nama' => $l['nama']]);
+            Loket::firstOrCreate(['nama' => $l['nama']]);
         }
     }
 }
