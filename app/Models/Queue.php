@@ -21,7 +21,12 @@ class Queue extends Model
 
             $nextNumber = ($last ? $last->nomor : 0) + 1;
 
-            
+            return self::create([
+                'loket_id' => $loketId,
+                'tanggal' => $today,
+                'nomor' => $nextNumber,
+                'status' => 'menunggu',
+            ]);
         });
     }
 }
