@@ -9,7 +9,7 @@ class Loket extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama', ['keterangan']];
+    protected $fillable = ['nama', 'keterangan'];
 
     public function queues()
     {
