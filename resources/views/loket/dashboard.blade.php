@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading tight">
-            {{ __('Daftar Loket')}}
+            {{ __('Daftar Loket') }}
         </h2>
     </x-slot>
 
@@ -18,15 +18,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ( $lokets as $loket )
-                            tr>
+                        @foreach ($lokets as $loket)
+                            <tr>
                                 <td class="px-4 py-2">{{ $loket->id }}</td>
-                                <td class="px-4 py-2">{{ $loket->nama_loket }}</td>
+                                <td class="px-4 py-2">{{ $loket->nama }}</td>
                                 <td class="px-4 py-2">
                                     <x-primary-button>Panggil Berikutnya</x-primary-button>
                                     <x-secondary-button>Panggil Ulang</x-secondary-button>
                                     <x-danger-button>Lewati</x-danger-button>
                                 </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
