@@ -12,4 +12,8 @@ class LoketController extends Controller
         
         return view('loket.dashboard', compact('lokets'));
     }
+
+    public function create() {
+        return view('loket.create');
+    }
 }
