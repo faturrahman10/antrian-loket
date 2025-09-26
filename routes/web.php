@@ -20,8 +20,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/loket', [LoketController::class, 'index'])
-    ->middleware(['auth'])
-    ->name('loket.dashboard');
+Route::middlewate(['auth'])->group(function () {
+    Route::get('/loket', [LoketController::class, 'index'])->name('loket.dashboard');
+    Route::get('/loket/create', [LoketController::class, 'create'])->name('loket.create');
+});
+
 
 require __DIR__ . '/auth.php';
