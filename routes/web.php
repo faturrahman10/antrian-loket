@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
 Route::middlewate(['auth'])->group(function () {
     Route::get('/loket', [LoketController::class, 'index'])->name('loket.dashboard');
     Route::get('/loket/create', [LoketController::class, 'create'])->name('loket.create');
+    Route::post('/loket', [LoketController::class, 'store'])->name('loket.store');
 });
 
 
