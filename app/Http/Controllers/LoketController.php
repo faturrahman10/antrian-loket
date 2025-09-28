@@ -51,4 +51,10 @@ class LoketController extends Controller
 
         return redirect()->route('loket.dashboard')->with('success', 'Loket berhasil diperbarui');
     }
+
+    public function destroy(Loket $loket){
+        $loket->delete();
+
+        return redirect()->route('loket.dashboard')->with('success', 'Loket berhasil dihapus');
+    }
 }
