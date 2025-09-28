@@ -21,6 +21,7 @@
                             <th class="px-4 py-2 text-left">ID</th>
                             <th class="px-4 py-2 text-left">Nama Loket</th>
                             <th class="px-4 py-2 text-left">Aksi</th>
+                            <th class="px-4 py-2 text-left">Aksi Admin</th>
                         </tr>
                     </thead>
                     <tbody>
