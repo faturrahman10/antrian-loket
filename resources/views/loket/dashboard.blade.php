@@ -35,10 +35,17 @@
                                     <x-danger-button>Lewati</x-danger-button>
                                 </td>
                                 <td class="px-4 py-2">
-                                    <a href="{{ route('loket.edit', $loket) }}"
-                                        class="bg-yellow-500 px-2 py-1 rounded text-white">Edit</a>
-                                    <a href="{{ route('loket.show', $loket) }}"
-                                        class="bg-blue-500 px-2 py-1 rounded text-white">Show</a>
+                                    <button class="bg-yellow-500 px-2 py-1 rounded text-white">
+                                        <a href="{{ route('loket.edit', $loket) }}">Edit</a>
+                                    </button>
+                                    <button class="bg-blue-500 px-2 py-1 rounded text-white">
+                                        <a href="{{ route('loket.show', $loket) }}">Show</a>
+                                    </button>
+                                    <form action="{{ route('loket.destroy', $loket) }}" method="POST" class="inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="bg-red-500 px-2 py-1 rounded text-white"
+                                            onclick="return confirm('Yakin ingin menghapus loket ini?')">Hapus</button>
                                 </td>
                             </tr>
                         @endforeach
