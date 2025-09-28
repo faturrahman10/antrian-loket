@@ -29,4 +29,9 @@ class LoketController extends Controller
 
         return redirect()->route('loket.dashboard')->with('success', 'Loket berhasil ditambahkan');
     }
+
+    public function show(Loket $loket)
+    {
+        return view('loket.view', compact('loket'));
+    }
 }
