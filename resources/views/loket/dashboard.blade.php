@@ -33,6 +33,10 @@
                                     <x-secondary-button>Panggil Ulang</x-secondary-button>
                                     <x-danger-button>Lewati</x-danger-button>
                                 </td>
+                                <td class="px-4 py-2">
+                                    <a href="{{ route('loket.edit', $loket) }}"
+                                        class="bg-yellow-500 px-2 py-1 rounded text-white">Edit</a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
