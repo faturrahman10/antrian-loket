@@ -24,6 +24,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/loket', [LoketController::class, 'index'])->name('loket.dashboard');
     Route::get('/loket/create', [LoketController::class, 'create'])->name('loket.create');
     Route::post('/loket', [LoketController::class, 'store'])->name('loket.store');
+    Route::get('/loket/{loket}', [LoketController::class, 'show'])->name('loket.show');
+    Route::get('/loket/{loket}/edit', [LoketController::class, 'edit'])->name('loket.edit');
+    Route::put('/loket/{loket}', [LoketController::class, 'update'])->name('loket.update');
 });
 
 
