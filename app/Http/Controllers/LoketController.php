@@ -39,4 +39,16 @@ class LoketController extends Controller
     {
         return view('loket.edit', compact('loket'));
     }
+
+    public function update(Request $request, Loket $loket)
+    {
+        $validate = $request->validate([
+            'nama' => 'required|string|max:255',
+            'keterangan' => 'required|string|max:255',
+        ]);
+
+        $loket->update($validate);
+
+        return redirect()->route('loket.dashboard')->with('success', 'Loket berhasil diperbarui');
+    }
 }
