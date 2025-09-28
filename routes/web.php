@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LoketController;
 use App\Http\Controllers\QueueController;
+use App\Models\Loket;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/loket', [QueueController::class, 'index'])->name('loket.index');
+    Route::get('/queue', [QueueController::class, 'index'])->name('queue.index');
 });
 
 
