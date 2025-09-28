@@ -32,7 +32,7 @@ class LoketController extends Controller
 
     public function show(Loket $loket)
     {
-        return view('loket.view', compact('loket'));
+        return view('loket.show', compact('loket'));
     }
 
     public function edit(Loket $loket)
