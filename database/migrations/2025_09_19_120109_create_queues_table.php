@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('loket_id')->constrained('lokets')->onDelete('cascade');
             $table->date('tanggal');
+            $table->unsignedInteger('nomor');
             $table->enum('status',['menunggu','dipanggil','selesai','dilewati'])->default('menunggu');
             $table->timestamp('dipanggil_pada')->nullable();
             $table->timestamps();
