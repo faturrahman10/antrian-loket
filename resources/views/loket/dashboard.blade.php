@@ -37,6 +37,8 @@
                                 <td class="px-4 py-2">
                                     <a href="{{ route('loket.edit', $loket) }}"
                                         class="bg-yellow-500 px-2 py-1 rounded text-white">Edit</a>
+                                    <a href="{{ route('loket.show', $loket) }}"
+                                        class="bg-blue-500 px-2 py-1 rounded text-white">Show</a>
                                 </td>
                             </tr>
                         @endforeach
