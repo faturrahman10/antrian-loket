@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LoketController;
+use App\Models\Loket;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/loket/{loket}', [LoketController::class, 'show'])->name('loket.show');
     Route::get('/loket/{loket}/edit', [LoketController::class, 'edit'])->name('loket.edit');
     Route::put('/loket/{loket}', [LoketController::class, 'update'])->name('loket.update');
+    Route::delete('/loket/{loket}', [LoketController::class, 'destroy'])->name('loket.destroy');
 });
 
 
