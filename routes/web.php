@@ -33,7 +33,12 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/queue', [QueueController::class, 'index'])->name('queue.index');
+    Route::get('/queue', [QueueController::class, 'dashboard'])->name('queue.dashboard');
+    Route::get('/queue/{loket}', [QueueController::class, 'show'])->name('loket.queue.show');
+    Route::post('/queue/{loket}/store', [QueueController::class, 'store'])->name('loket.queue.store');
+    Route::post('/queue/{queue}/call', [QueueController::class, 'call'])->name('queue.call');
+    Route::post('/queue/{queue}/finish', [QueueController::class, 'finish'])->name('queue.finish');
+    Route::post('/queue/{queue}/skip', [QueueController::class, 'skip'])->name('queue.skip');
 });
 
 
