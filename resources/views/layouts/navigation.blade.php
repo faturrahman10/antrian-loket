@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('loket.dashboard')" :active="request()->routeIs('loket.dashboard')">
                         {{ __('Loket') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('queue.dashboard')" :active="request()->routeIs('queue.dashboard')">
+                        {{ __('Antrian') }}
+                    </x-nav-link>
                 </div>
             </div>
 
