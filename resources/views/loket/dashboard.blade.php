@@ -20,7 +20,6 @@
                         <tr>
                             <th class="px-4 py-2 text-left">ID</th>
                             <th class="px-4 py-2 text-left">Nama Loket</th>
-                            <th class="px-4 py-2 text-left">Aksi</th>
                             <th class="px-4 py-2 text-left">Aksi Admin</th>
                         </tr>
                     </thead>
@@ -29,11 +28,6 @@
                             <tr>
                                 <td class="px-4 py-2">{{ $loket->id }}</td>
                                 <td class="px-4 py-2">{{ $loket->nama }}</td>
-                                <td class="px-4 py-2">
-                                    <x-primary-button>Panggil Berikutnya</x-primary-button>
-                                    <x-secondary-button>Panggil Ulang</x-secondary-button>
-                                    <x-danger-button>Lewati</x-danger-button>
-                                </td>
                                 <td class="px-4 py-2">
                                     <button class="bg-yellow-500 px-2 py-1 rounded text-white">
                                         <a href="{{ route('loket.edit', $loket) }}">Edit</a>
