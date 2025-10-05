@@ -35,7 +35,11 @@ class QueueController extends Controller
 
     public function show(Loket $loket)
     {
-        
+        $today = now()->toDateString();
+
+        $queues = Queue::where('loket_id', $loket->id)->whereDate('tanggal', $today)->orderBy('nomor')->get();
+
+        return view('queueu.index', compact('loket', 'queues'));
     }
 
     public function call(Queue $queue)
