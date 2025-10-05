@@ -11,22 +11,31 @@ class QueueController extends Controller
 {
     public function dashboard()
     {
-        $lokets = Loket::all();
-        return view('queue.dashboard', compact('lokets'));
-    }
+        $today = Carbon::today();
+        $queues = Queue::whereDate('tanggal', $today)->orderBy('nomor')->get();
 
-    public function show(Loket $loket)
-    {
-        $queues = Queue::where('loket_id', $loket->id)->whereDate('created_at', Carbon::today())->orderBy('nomor')->get();
-
-        return view('queue.index', compact('loket', 'queues'));
+        return view('queue.dashboard', compact('queues'));
     }
 
     public function store(Loket $loket)
     {
-        Queue::createNextForLoket($loket->id);
+        $today = Carbon::today();
+        $last = Queue::whereDate('tanggal', $today)->orderByDesc('nomor')->first();
+        $nextNumber = $last ? $last->nomor + 1 : 1;
 
-        return back()->with('success', 'Nomor antrian baru berhasil diambil.');
+        Queue::create([
+            'nomor' => $nextNumber,
+            'status' => 'menunggu',
+            'tanggal' => $today,
+            'loket_id' => null,
+        ]);
+
+        return redirect()->route('queue.dashboard')->with('success', 'nomor antrian baru ditambahkan');
+    }
+
+    public function show(Loket $loket)
+    {
+        
     }
 
     public function call(Queue $queue)
