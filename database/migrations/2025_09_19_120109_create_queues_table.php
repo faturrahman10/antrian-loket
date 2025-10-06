@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('queues', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('loket_id')->constrained('lokets')->onDelete('cascade');
+            $table->foreignId('loket_id')->nullable()->constrained('lokets')->onDelete('cascade');
             $table->date('tanggal');
             $table->unsignedInteger('nomor');
             $table->enum('status',['menunggu','dipanggil','selesai','dilewati'])->default('menunggu');
