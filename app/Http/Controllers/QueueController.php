@@ -42,35 +42,32 @@ class QueueController extends Controller
         return view('queueu.index', compact('loket', 'queues'));
     }
 
-    public function call(Queue $queue)
+    public function take(Loket $loket)
     {
-        if ($queue->status === 'menunggu') {
-            $queue->update([
-                'status' => 'dipanggil',
-                'dipanggil_pada' => now(),
-            ]);
-        }
+        $today = now()->toDateString();
+        $queue = Queue::whereNull('loket_id')->whereDate('tanggal', $today)->orderBy('nomor')->first();
 
-        return back()->with('success', "Nomor {$queue->nomor} dipanggil.");
+        if(!$queue) {
+            return back()->with('error', 'Tidak ada antrian menunggu');
+        }
+        $queue->upddate([
+            'loket_id' => $loket->id,
+            'status' => 'dipanggil',
+            'dipanggil_pada' => now(),
+        ]);
+
+        return back()->with('success', 'antrian #'.$queue->nomor.' sedang dipanggil di loket '.$loket->nama);
     }
 
     public function finish(Queue $queue)
     {
-        if ($queue->status === 'dipanggil') {
-            $queue->update(['status' => 'selesai']);
-            return back()->with('success', 'Nomor ' . $queue->nomor . ' selesai.');
-        }
-
-        return back()->with('error', 'Nomor ini belum dipanggil.');
+        $queue->update(['status' => 'selesai']);
+        return back()->with('success', 'Antrian #'.$queue->nomor.' selesai');
     }
 
     public function skip(Queue $queue)
     {
-        if (in_array($queue->status, ['menunggu', 'dipanggil'])) {
-            $queue->update(['status' => 'dilewati']);
-            return back()->with('success', 'Nomor ' . $queue->nomor . ' dilewati.');
-        }
-
-        return back()->with('error', 'Nomor ini tidak bisa dilewati.');
+        $queue->update(['status' => 'dilewati']);
+        return back()->with('success', 'Antrian #'.$queue->nomor.' dilewati');
     }
 }
