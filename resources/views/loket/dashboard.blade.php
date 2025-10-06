@@ -40,6 +40,11 @@
                                         @method('DELETE')
                                         <button type="submit" class="bg-red-500 px-2 py-1 rounded text-white"
                                             onclick="return confirm('Yakin ingin menghapus loket ini?')">Hapus</button>
+                                    </form>
+                                    <a href="{{ route('loket.queue.show', $loket) }}"
+                                        class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">
+                                        Kelola Antrian
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
