@@ -9,24 +9,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
 
             @if (session('success'))
-                <div class="bg-green-100 text-green-800 p-3 rounded">
-                    {{ session('success') }}
-                </div>
+                <div class="bg-green-100 text-green-800 p-3 rounded">{{ session('success') }}</div>
             @endif
             @if (session('error'))
-                <div class="bg-red-100 text-red-800 p-3 rounded">
-                    {{ session('error') }}
-                </div>
+                <div class="bg-red-100 text-red-800 p-3 rounded">{{ session('error') }}</div>
             @endif
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
-                <form action="{{ route('loket.queue.store', $loket) }}" method="POST">
+                <form action="{{ route('loket.queue.take', $loket) }}" method="POST">
                     @csrf
-                    <x-primary-button>+ Ambil Nomor Antrian</x-primary-button>
-                    <a href="{{ route('queue.dashboard') }}"
-                        class="ml-3 inline-block px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">
-                        Kembali
-                    </a>
+                    <x-primary-button type="submit">Ambil Antrian Berikutnya</x-primary-button>
+                    <a href="{{ route('loket.dashboard') }}" class="ml-3 px-3 py-1 bg-gray-200 rounded">Kembali</a>
                 </form>
             </div>
 
@@ -60,25 +53,14 @@
                                     {{ $queue->dipanggil_pada ? $queue->dipanggil_pada->format('H:i:s') : '-' }}
                                 </td>
                                 <td class="px-4 py-2 space-x-2">
-                                    @if ($queue->status === 'menunggu')
-                                        <form action="{{ route('queue.call', $queue) }}" method="POST" class="inline">
-                                            @csrf
-                                            <x-secondary-button type="submit">Panggil</x-secondary-button>
-                                        </form>
+                                    @if ($queue->status === 'dipanggil')
                                         <form action="{{ route('queue.skip', $queue) }}" method="POST" class="inline">
                                             @csrf
                                             <x-danger-button>Lewati</x-danger-button>
                                         </form>
-                                    @elseif($queue->status === 'dipanggil')
-                                        <form action="{{ route('queue.finish', $queue) }}" method="POST"
-                                            class="inline">
+                                        <form action="{{ route('queue.finish', $queue) }}" method="POST" class="inline">
                                             @csrf
                                             <x-primary-button>Selesai</x-primary-button>
-                                        </form>
-                                        <form action="{{ route('queue.skip', $queue) }}" method="POST" class="inline">
-                                            @csrf
-                                            <x-danger-button>Lewati</x-danger-button>
-                                        </form>
                                     @else
                                         <span class="text-sm text-gray-500">-</span>
                                     @endif
@@ -94,7 +76,6 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 </x-app-layout>
