@@ -79,4 +79,9 @@ class QueueController extends Controller
 
         event(new \App\Events\QueueUpdated($queue));
     }
+
+    public function display()
+    {
+        return view('queue.display');
+    }
 }
