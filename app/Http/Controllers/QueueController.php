@@ -59,6 +59,8 @@ class QueueController extends Controller
             'dipanggil_pada' => now(),
         ]);
 
+        event(new \App\Events\QueueUpdated($queue));
+
         return back()->with('success', 'antrian #' . $queue->nomor . ' sedang dipanggil di loket ' . $loket->nama);
     }
 
@@ -66,11 +68,15 @@ class QueueController extends Controller
     {
         $queue->update(['status' => 'selesai']);
         return back()->with('success', 'Antrian #' . $queue->nomor . ' selesai');
+
+        event(new \App\Events\QueueUpdated($queue));
     }
 
     public function skip(Queue $queue)
     {
         $queue->update(['status' => 'dilewati']);
         return back()->with('success', 'Antrian #' . $queue->nomor . ' dilewati');
+
+        event(new \App\Events\QueueUpdated($queue));
     }
 }
