@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/queue/{loket}/take', [QueueController::class, 'take'])->name('loket.queue.take');
     Route::post('/queue/{queue}/finish', [QueueController::class, 'finish'])->name('queue.finish');
     Route::post('/queue/{queue}/skip', [QueueController::class, 'skip'])->name('queue.skip');
+    Route::get('/queue/display', [QueueController::class, 'display'])->name('queue.display');
 });
 
 
