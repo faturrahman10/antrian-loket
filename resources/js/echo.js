@@ -1,17 +1,14 @@
 import Echo from "laravel-echo";
 import Pusher from "pusher-js";
 
-// 🔧 Set global Pusher agar Laravel Echo bisa menggunakannya
 window.Pusher = Pusher;
 
-// 🚀 Inisialisasi Laravel Echo
 window.Echo = new Echo({
     broadcaster: "pusher",
     key: import.meta.env.VITE_PUSHER_APP_KEY,
     cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
     forceTLS: true,
-    // reconnect otomatis kalau koneksi terputus
-    enabledTransports: ["ws", "wss"], // lebih stabil
+    enabledTransports: ["ws", "wss"],
     disableStats: true,
 });
 
@@ -19,19 +16,18 @@ console.log("✅ Echo diinisialisasi — menunggu pesan dari server...");
 console.log(`🔑 Pusher Key: ${import.meta.env.VITE_PUSHER_APP_KEY}`);
 console.log(`📦 Cluster: ${import.meta.env.VITE_PUSHER_APP_CLUSTER}`);
 
-// 🧩 Dengarkan channel publik 'queues' dan event '.queue.updated'
-window.Echo.channel("queues")
-    .listen(".queue.updated", (e) => {
-        console.log("📢 Pesan diterima dari server:", e.message);
+window.Echo.channel("queues").listen(".QueueUpdated", (e) => {
+    console.log("📢 Update diterima:", e.queue);
 
-        // Tampilkan notifikasi sederhana
-        alert(`Pesan baru: ${e.message}`);
-    })
-    .error((err) => {
-        console.error("❌ Error pada koneksi channel:", err);
-    });
+    const num = e.queue.nomor ?? "-";
+    const loket = e.queue.loket?.nama ?? "Tidak diketahui";
 
-// 🧠 Event listener opsional (debug koneksi)
+    document.getElementById("current-number").textContent = num;
+    document.getElementById("current-loket").textContent = "Loket " + loket;
+
+    alert(`Antrian #${num} sedang dipanggil di ${loket}`);
+});
+
 window.Echo.connector.pusher.connection.bind("connected", () => {
     console.log("🟢 Terhubung ke Pusher server.");
 });
