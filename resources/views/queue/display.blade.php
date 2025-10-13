@@ -13,32 +13,6 @@
         </div>
     </div>
 
-    <script type="module">
-        import Echo from "laravel-echo";
-        import Pusher from "pusher-js";
-
-        window.Pusher = Pusher;
-        window.Echo = new Echo({
-            broadcaster: "pusher",
-            key: import.meta.env.VITE_PUSHER_APP_KEY,
-            cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
-            forceTLS: true,
-        });
-
-        console.log("📺 Display aktif, menunggu update antrian...");
-
-        window.Echo.channel("queues").listen(".queue.updated", (e) => {
-            console.log("📢 Update diterima:", e.queue);
-
-            const num = e.queue.nomor;
-            const loket = e.queue.loket?.nama ?? "Tidak diketahui";
-
-            document.getElementById("current-number").textContent = num;
-            document.getElementById("current-loket").textContent = "Loket " + loket;
-
-            // Optional: bunyikan suara
-            const audio = new Audio("/sounds/notification.mp3");
-            audio.play().catch(() => {});
-        });
-    </script>
+    {{-- Cukup ini saja --}}
+    @vite(['resources/js/app.js'])
 </x-app-layout>
