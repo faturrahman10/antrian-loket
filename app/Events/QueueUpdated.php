@@ -2,41 +2,50 @@
 
 namespace App\Events;
 
+use App\Models\Queue;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
-class QueueUpdated implements ShouldBroadcast
+class QueueUpdated implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $message;
+    public $queue;
 
-    /**
-     * Create a new event instance.
-     */
-    public function __construct($message)
+    public function __construct(Queue $queue)
     {
-        $this->message = $message;
+        $this->queue = $queue->load('loket');
+        Log::info('📡 Event QueueUpdated terkirim', ['queue' => $this->queue]);
     }
 
-    /**
-     * Get the channels the event should broadcast on.
-     */
     public function broadcastOn()
     {
         return new Channel('queues');
     }
 
-    /**
-     * Tentukan nama event saat dikirim ke Pusher.
-     */
     public function broadcastAs()
     {
-        return 'queue.updated';
+        return 'QueueUpdated';
+    }
+
+    public function broadcastWith(): array
+    {
+        return [
+            'queue' => [
+                'id' => $this->queue->id,
+                'nomor' => $this->queue->nomor,
+                'status' => $this->queue->status,
+                'loket' => $this->queue->loket
+                    ? [
+                        'id' => $this->queue->loket->id,
+                        'nama' => $this->queue->loket->nama,
+                    ]
+                    : null,
+            ],
+        ];
     }
 }
