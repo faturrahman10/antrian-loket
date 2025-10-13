@@ -60,24 +60,21 @@ class QueueController extends Controller
         ]);
 
         event(new \App\Events\QueueUpdated($queue));
-
         return back()->with('success', 'antrian #' . $queue->nomor . ' sedang dipanggil di loket ' . $loket->nama);
     }
 
     public function finish(Queue $queue)
     {
         $queue->update(['status' => 'selesai']);
-        return back()->with('success', 'Antrian #' . $queue->nomor . ' selesai');
-
         event(new \App\Events\QueueUpdated($queue));
+        return back()->with('success', 'Antrian #' . $queue->nomor . ' selesai');
     }
 
     public function skip(Queue $queue)
     {
         $queue->update(['status' => 'dilewati']);
-        return back()->with('success', 'Antrian #' . $queue->nomor . ' dilewati');
-
         event(new \App\Events\QueueUpdated($queue));
+        return back()->with('success', 'Antrian #' . $queue->nomor . ' dilewati');
     }
 
     public function display()
