@@ -34,13 +34,14 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/queue', [QueueController::class, 'dashboard'])->name('queue.dashboard');
+    Route::get('/queue/display', [QueueController::class, 'display'])->name('queue.display');
     Route::post('/queue/store', [QueueController::class, 'store'])->name('queue.store');
     Route::get('/queue/{loket}', [QueueController::class, 'show'])->name('loket.queue.show');
     Route::post('/queue/{loket}/take', [QueueController::class, 'take'])->name('loket.queue.take');
     Route::post('/queue/{queue}/finish', [QueueController::class, 'finish'])->name('queue.finish');
     Route::post('/queue/{queue}/skip', [QueueController::class, 'skip'])->name('queue.skip');
-    Route::get('/queue/display', [QueueController::class, 'display'])->name('queue.display');
 });
+
 
 
 require __DIR__ . '/auth.php';
