@@ -50,10 +50,8 @@ window.Echo.channel("queues").listen(".QueueUpdated", (e) => {
 
     updateRecentQueues(num, loket);
 
-    playNotificationSound();
+    // playNotificationSound();
 });
-
-// === Fungsi tambahan ===
 
 function updateRecentQueues(num, loket) {
     const recentContainer = document.getElementById("recent-queues");
@@ -80,12 +78,12 @@ function updateRecentQueues(num, loket) {
     }
 }
 
-function playNotificationSound() {
-    const audio = new Audio("/sounds/notification.mp3");
-    audio.volume = 0.7;
-    audio.play().catch(() => {
-        console.warn(
-            "🔇 Tidak bisa memutar suara otomatis (butuh interaksi pengguna)"
-        );
-    });
-}
+// function playNotificationSound() {
+//     const audio = new Audio("/sounds/notification.mp3");
+//     audio.volume = 0.7;
+//     audio.play().catch(() => {
+//         console.warn(
+//             "🔇 Tidak bisa memutar suara otomatis (butuh interaksi pengguna)"
+//         );
+//     });
+// }
