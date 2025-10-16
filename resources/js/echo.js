@@ -28,40 +28,29 @@ window.Echo.connector.pusher.connection.bind("error", (err) => {
     console.error("⚠️ Koneksi error:", err);
 });
 
+let currentActiveNumber = null;
+
 window.Echo.channel("queues").listen(".QueueUpdated", (e) => {
     console.log("📢 Update diterima:", e.queue);
 
-    const numberEl = document.getElementById("current-number");
-    const loketEl = document.getElementById("current-loket");
+    const num = e.queue.nomor ?? "-";
+    const loket = e.queue.loket?.nama ?? "Tidak diketahui";
 
-    if (!numberEl || !loketEl) {
-        console.warn("⚠️ Elemen display antrian tidak ditemukan di halaman.");
-        return;
+    if (num === currentActiveNumber) return;
+
+    document.getElementById("current-number").textContent = num;
+    document.getElementById("current-loket").textContent = "Loket " + loket;
+
+    if (currentActiveNumber !== null) {
+        updateRecentQueues(currentActiveNumber, loket);
     }
 
-    const num = e.queue?.nomor ?? "-";
-    const loket = e.queue?.loket?.nama ?? "Tidak diketahui";
-
-    numberEl.textContent = num;
-    loketEl.textContent = `Loket ${loket}`;
-
-    numberEl.classList.add("animate-bounce");
-    setTimeout(() => numberEl.classList.remove("animate-bounce"), 1000);
-
-    updateRecentQueues(num, loket);
-
-    // playNotificationSound();
+    currentActiveNumber = num;
 });
 
 function updateRecentQueues(num, loket) {
     const recentContainer = document.getElementById("recent-queues");
     if (!recentContainer) return;
-
-    const existingNumbers = Array.from(recentContainer.children).map(
-        (child) => child.querySelector("p")?.textContent
-    );
-
-    if (existingNumbers[0] === String(num)) return;
 
     const newItem = document.createElement("div");
     newItem.className =
