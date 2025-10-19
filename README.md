@@ -29,7 +29,20 @@ Aplikasi ini memungkinkan pemanggilan nomor antrian secara langsung dan menampil
 
 ## ⚙️ Instalasi & Setup
 
-### 1️⃣ Clone Repository
+### Pusher | .env configuration
+
+```bash
+BROADCAST_DRIVER=pusher
+PUSHER_APP_ID=your_app_id
+PUSHER_APP_KEY=your_app_key
+PUSHER_APP_SECRET=your_app_secret
+PUSHER_APP_CLUSTER=ap1
+
+VITE_PUSHER_APP_KEY=${PUSHER_APP_KEY}
+VITE_PUSHER_APP_CLUSTER=${PUSHER_APP_CLUSTER}
+```
+
+### Clone Repository
 
 ```bash
 git clone https://github.com/faturrahman10/antrian-loket.git
