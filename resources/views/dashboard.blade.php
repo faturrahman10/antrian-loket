@@ -13,7 +13,6 @@
     <div class="py-10 bg-gradient-to-br from-purple-50 via-white to-purple-100 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
 
-            {{-- Welcome Card --}}
             <div
                 class="bg-white shadow-lg rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between border border-purple-100 transition hover:shadow-2xl hover:-translate-y-1 duration-300">
                 <div>
@@ -28,7 +27,6 @@
                     class="w-32 sm:w-40 mt-6 sm:mt-0 animate-bounce">
             </div>
 
-            {{-- Statistik / Quick Info --}}
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div
                     class="bg-gradient-to-br from-purple-600 to-purple-800 text-white p-6 rounded-2xl shadow-md hover:shadow-xl transition">
@@ -55,7 +53,6 @@
                 </div>
             </div>
 
-            {{-- Quick Actions --}}
             <div class="bg-white p-8 rounded-2xl shadow-lg border border-purple-100">
                 <h3 class="text-xl font-bold text-purple-900 mb-4">Aksi Cepat</h3>
                 <div class="flex flex-wrap gap-4">
