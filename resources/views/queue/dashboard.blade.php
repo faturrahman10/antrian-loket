@@ -4,6 +4,9 @@
             <h2 class="text-2xl font-bold text-purple-800 tracking-tight">
                 Dashboard Antrian
             </h2>
+            <span class="text-sm text-gray-500">
+                {{ now()->format('l, d F Y') }}
+            </span>
         </div>
     </x-slot>
 
