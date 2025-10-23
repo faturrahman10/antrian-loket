@@ -10,7 +10,7 @@
         </div>
     </x-slot>
 
-    <div class="py-8 bg-gradient-to-br from-purple-50 via-white to-indigo-50 min-h-screen">
+    <div class="py-8 bg-gray-50 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
 
             {{-- Alert --}}
@@ -42,7 +42,7 @@
             @endif
 
             {{-- Tombol Aksi --}}
-            <div class="bg-white shadow-md sm:rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between border border-purple-100">
+            <div class="bg-white shadow-sm sm:rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between">
                 <div>
                     <h3 class="text-lg font-semibold text-gray-800">Ambil Antrian Berikutnya</h3>
                     <p class="text-sm text-gray-500">Klik tombol di bawah untuk memanggil antrian selanjutnya di loket ini.</p>
@@ -52,7 +52,7 @@
                     <form action="{{ route('loket.queue.take', $loket) }}" method="POST">
                         @csrf
                         <button type="submit"
-                            class="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg shadow-md transition">
+                            class="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg shadow-md transition">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
@@ -62,17 +62,17 @@
                     </form>
 
                     <a href="{{ route('loket.dashboard') }}"
-                        class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg shadow-sm transition">
+                        class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-medium rounded-lg shadow-sm transition">
                         ← Kembali
                     </a>
                 </div>
             </div>
 
             {{-- Daftar Antrian Hari Ini --}}
-            <div class="bg-white overflow-hidden shadow-md sm:rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition">
                 <div class="flex items-center justify-between mb-5">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-900">📋 Daftar Antrian Hari Ini</h3>
+                        <h3 class="text-xl font-semibold text-gray-900">📅 Daftar Antrian Hari Ini</h3>
                         <p class="text-sm text-gray-500">Status antrian yang aktif di loket ini.</p>
                     </div>
                     <span class="text-sm px-3 py-1 bg-purple-100 text-purple-700 rounded-full">
