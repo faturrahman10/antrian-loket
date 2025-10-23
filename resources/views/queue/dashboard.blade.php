@@ -36,7 +36,7 @@
                 <form action="{{ route('queue.store') }}" method="POST">
                     @csrf
                     <button type="submit"
-                        class="inline-flex items-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-md transition-all">
+                        class="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg shadow-md transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
@@ -54,14 +54,14 @@
                         <h3 class="text-xl font-semibold text-gray-900">📅 Antrian Hari Ini</h3>
                         <p class="text-sm text-gray-500">Pantau status antrian yang sedang berjalan hari ini.</p>
                     </div>
-                    <span class="text-sm px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full">
+                    <span class="text-sm px-3 py-1 bg-purple-100 text-purple-700 rounded-full">
                         Total: {{ count($queues) }}
                     </span>
                 </div>
 
                 <div class="overflow-x-auto rounded-lg border border-gray-200">
                     <table class="min-w-full text-sm text-left text-gray-700">
-                        <thead class="bg-indigo-600 text-white uppercase text-xs tracking-wider">
+                        <thead class="bg-purple-600 text-white uppercase text-xs tracking-wider">
                             <tr>
                                 <th class="px-6 py-3">Nomor</th>
                                 <th class="px-6 py-3">Status</th>

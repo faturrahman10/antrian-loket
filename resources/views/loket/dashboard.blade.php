@@ -5,7 +5,7 @@
                 Dashboard Loket
             </h2>
             <a href="{{ route('loket.create') }}"
-                class="inline-flex items-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg shadow transition-all duration-200">
+                class="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg shadow transition-all duration-200">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
@@ -22,12 +22,12 @@
                 <div class="p-6 sm:p-8">
                     <div class="flex items-center justify-between mb-6">
                         <div>
-                            <h3 class="text-xl font-semibold text-gray-900">Daftar Loket</h3>
+                            <h3 class="text-xl font-semibold text-gray-900">📅 Daftar Loket</h3>
                             <p class="text-sm text-gray-500 mt-1">Kelola data loket dan akses manajemen antrian di sini.
                             </p>
                         </div>
                         <div>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full font-medium">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full font-medium">
                                 Total: {{ count($lokets) }}
                             </span>
                         </div>
@@ -35,7 +35,7 @@
 
                     <div class="overflow-x-auto rounded-lg">
                         <table class="min-w-full border-collapse">
-                            <thead class="bg-indigo-600 text-white uppercase text-xs tracking-wider">
+                            <thead class="bg-purple-600 text-white uppercase text-xs tracking-wider">
                                 <tr>
                                     <th class="px-6 py-3 text-left">#</th>
                                     <th class="px-6 py-3 text-left">NAMA LOKET</th>
@@ -70,7 +70,7 @@
                                             </form>
 
                                             <a href="{{ route('loket.queue.show', $loket) }}"
-                                                class="inline-flex items-center px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-md shadow-sm transition">
+                                                class="inline-flex items-center px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-md shadow-sm transition">
                                                 📋 Kelola Antrian
                                             </a>
                                         </td>
