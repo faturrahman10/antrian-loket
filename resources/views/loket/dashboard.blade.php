@@ -4,22 +4,28 @@
             <h2 class="text-2xl font-bold text-gray-800 tracking-tight">
                 Dashboard Loket
             </h2>
-            <a href="{{ route('loket.create') }}"
-                class="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg shadow transition-all duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                </svg>
-                Tambah Loket
-            </a>
         </div>
     </x-slot>
 
-    <div class="py-10 bg-gray-50 min-h-screen">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="py-8 bg-gray-50 min-h-screen">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-2xl p-6 flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800">Tambah Loket</h3>
+                    <p class="text-sm text-gray-500">Klik tombol di bawah untuk menambah loket baru.</p>
+                </div>
+                <a href="{{ route('loket.create') }}"
+                    class="inline-flex items-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg shadow transition-all duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Tambah Loket
+                </a>
+            </div>
             <div
                 class="bg-white overflow-hidden shadow-xl sm:rounded-2xl border border-gray-100 hover:shadow-2xl transition-all duration-300">
-                <div class="p-6 sm:p-8">
+                <div class="p-6">
                     <div class="flex items-center justify-between mb-6">
                         <div>
                             <h3 class="text-xl font-semibold text-gray-900">📅 Daftar Loket</h3>
