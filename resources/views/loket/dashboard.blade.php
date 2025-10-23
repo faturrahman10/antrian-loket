@@ -70,7 +70,7 @@
                                             </form>
 
                                             <a href="{{ route('loket.queue.show', $loket) }}"
-                                                class="inline-flex items-center px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-md shadow-sm transition">
+                                                class="inline-flex items-center px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-md shadow-sm transition">
                                                 📋 Kelola Antrian
                                             </a>
                                         </td>
