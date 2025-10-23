@@ -24,7 +24,7 @@
                     </p>
                 </div>
                 <img src="https://cdn-icons-png.flaticon.com/512/906/906175.png" alt="Dashboard Icon"
-                    class="w-32 sm:w-40 mt-6 sm:mt-0 animate-bounce">
+                    class="w-32 sm:w-40 mt-6 sm:mt-0">
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
