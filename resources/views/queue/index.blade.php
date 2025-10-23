@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-bold text-gray-800 tracking-tight">
+            <h2 class="text-2xl font-bold text-purple-800 tracking-tight">
                 Antrian — {{ $loket->nama }}
             </h2>
             <span class="text-sm text-gray-500">
