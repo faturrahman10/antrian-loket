@@ -56,8 +56,8 @@ function updateRecentQueues(num, loket) {
     newItem.className =
         "bg-white/10 p-6 rounded-2xl border border-white/20 transition-all duration-500 hover:bg-white/20";
     newItem.innerHTML = `
-        <p class="text-5xl font-bold text-blue-100">${num}</p>
-        <span class="block text-lg text-blue-300 mt-2">Loket ${loket}</span>
+        <p class="text-5xl font-bold text-center text-blue-100">${num}</p>
+        <span class="block text-lg text-center text-blue-300 mt-2">Loket ${loket}</span>
     `;
 
     recentContainer.prepend(newItem);

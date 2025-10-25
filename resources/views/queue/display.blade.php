@@ -1,55 +1,67 @@
-<x-app-layout>
-    <x-slot name="header">
-        {{-- Kosongkan header agar tampil full screen --}}
-    </x-slot>
+<!DOCTYPE html>
+<html lang="id">
 
-    <div class="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 flex flex-col items-center justify-between text-white font-sans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Antrian</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
 
-        {{-- Header --}}
-        <header class="w-full py-6 text-center bg-blue-950 shadow-lg">
-            <h1 class="text-4xl font-extrabold tracking-wide uppercase">Sistem Antrian Loket</h1>
-            <p class="text-blue-300 text-lg mt-2">Pelayanan Cepat, Tertib, dan Nyaman</p>
-        </header>
+<body
+    class="bg-gradient-to-b from-purple-900 via-purple-800 to-purple-900 text-white flex flex-col justify-center items-center h-screen overflow-hidden md:overflow-hidden">
 
-        {{-- Konten Utama --}}
-        <main class="flex-1 flex flex-col items-center justify-center w-full px-6">
-            <div class="bg-white/10 backdrop-blur-md shadow-2xl rounded-3xl p-12 text-center w-full max-w-4xl border border-white/20">
-                <h2 class="text-3xl font-semibold mb-4 text-blue-200 tracking-wider">Nomor Antrian Saat Ini</h2>
+    <main class="w-full h-full flex flex-col justify-center items-center px-4 md:px-10">
 
-                <div id="current-number" class="text-9xl font-extrabold text-yellow-400 drop-shadow-lg mb-6 animate-pulse">
-                    -
-                </div>
-
-                <div id="current-loket" class="text-3xl font-semibold text-blue-100">
-                    Menunggu...
-                </div>
+        <!-- Card Utama -->
+        <div
+            class="w-full max-w-3xl bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl text-center py-10 md:py-8 mb-10 md:mb-6 flex flex-col justify-center items-center">
+            <h1 class="text-2xl md:text-3xl font-semibold mb-6">Nomor Antrian Saat Ini</h1>
+            <div id="current-number"
+                class="text-7xl md:text-8xl font-bold text-yellow-400 transition-transform duration-300 scale-100">-
             </div>
+            <p id="current-loket" class="mt-6 text-lg md:text-xl text-gray-200">Menunggu...</p>
+        </div>
 
-            {{-- Info Tambahan / Queue History --}}
-            <div class="mt-12 w-full max-w-5xl text-center">
-                <h3 class="text-2xl text-blue-200 font-semibold mb-4">Antrian Sebelumnya</h3>
-                <div id="recent-queues" class="grid grid-cols-3 gap-6">
-                    <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
-                        <p class="text-5xl font-bold text-blue-100">-</p>
-                        <span class="block text-lg text-blue-300 mt-2">Loket -</span>
-                    </div>
-                    <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
-                        <p class="text-5xl font-bold text-blue-100">-</p>
-                        <span class="block text-lg text-blue-300 mt-2">Loket -</span>
-                    </div>
-                    <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
-                        <p class="text-5xl font-bold text-blue-100">-</p>
-                        <span class="block text-lg text-blue-300 mt-2">Loket -</span>
-                    </div>
-                </div>
+        <!-- Judul Antrian Sebelumnya -->
+        <h2 class="text-xl md:text-2xl font-medium mb-4">Antrian Sebelumnya</h2>
+
+        <!-- Card Antrian Sebelumnya -->
+        <div id="recent-queues" class="flex flex-wrap justify-center gap-4 md:gap-6 w-full max-w-5xl">
+            <div
+                class="flex-1 min-w-[170px] max-w-[280px] bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl py-6 text-center">
+                <div class="text-3xl font-bold">-</div>
+                <p class="text-sm md:text-base text-gray-300 mt-2">Loket -</p>
             </div>
-        </main>
+            <div
+                class="flex-1 min-w-[170px] max-w-[280px] bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl py-6 text-center">
+                <div class="text-3xl font-bold">-</div>
+                <p class="text-sm md:text-base text-gray-300 mt-2">Loket -</p>
+            </div>
+            <div
+                class="flex-1 min-w-[170px] max-w-[280px] bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl py-6 text-center">
+                <div class="text-3xl font-bold">-</div>
+                <p class="text-sm md:text-base text-gray-300 mt-2">Loket -</p>
+            </div>
+        </div>
 
-        {{-- Footer --}}
-        <footer class="w-full py-4 bg-blue-950 text-center text-blue-300 text-sm">
-            © {{ date('Y') }} Sistem Antrian — Dibangun dengan Laravel & Tailwind CSS
-        </footer>
+    </main>
+
+    <!-- Branding watermark kecil -->
+    <div class="absolute bottom-4 right-4 opacity-30 font-semibold text-sm select-none">
+        <a href="/dashboard">HospiQu</a>
     </div>
 
-    @vite(['resources/js/app.js'])
-</x-app-layout>
+    <!-- Responsif untuk HP -->
+    <style>
+        @media (max-width: 1000px) {
+            body {
+                overflow-y: auto !important;
+                height: auto !important;
+            }
+        }
+    </style>
+
+</body>
+
+</html>
