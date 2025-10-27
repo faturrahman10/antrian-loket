@@ -111,7 +111,7 @@
                 </div>
 
                 <div class="mt-6 text-sm text-gray-400 text-center">
-                    © {{ date('Y') }} Sistem Antrian — Dibuat dengan ❤️ oleh fatur.
+                    © {{ date('Y') }} Sistem Antrian — Dibuat dengan 💜 oleh fatur.
                 </div>
             </div>
         </div>
