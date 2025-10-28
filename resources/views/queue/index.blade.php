@@ -145,7 +145,7 @@
                 </div>
 
                 <div class="mt-6 text-sm text-gray-400 text-center">
-                    © {{ date('Y') }} Sistem Antrian — {{ $loket->nama }}
+                    © {{ date('Y') }} Sistem Antrian — {{ $loket->nama }} — Dibuat dengan 💜 oleh fatur.
                 </div>
             </div>
         </div>
